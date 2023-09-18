@@ -85,9 +85,9 @@ public class Alumnos {
     }
 
     public void setActivo(boolean activo) {
-        this.activo = activo;
+      this.activo = activo;
     }
     
-    
+    /*prueba*/
     
 }
