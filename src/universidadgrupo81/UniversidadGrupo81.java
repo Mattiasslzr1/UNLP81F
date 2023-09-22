@@ -15,7 +15,7 @@ public class UniversidadGrupo81 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-         Connection con = Conexion.getConexion();
+         //Connection con = Conexion.getConexion();         No sé si va, si va descomenten 
     }
     
 }
