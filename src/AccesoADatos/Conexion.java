@@ -1,4 +1,4 @@
-package universisdadgrupo81.AccesoADatos;
+package AccesoADatos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

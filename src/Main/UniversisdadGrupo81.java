@@ -3,23 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package universidadgrupo81;
+package Main;
 
 /**
  *
- * @author claux
+ * @author TheOf
  */
-public class UniversidadGrupo81 {
+public class UniversisdadGrupo81 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-         //Connection con = Conexion.getConexion();         No sé si va, si va descomenten 
+        // TODO code application logic here
     }
     
 }
-
-
-
-/*           */ 

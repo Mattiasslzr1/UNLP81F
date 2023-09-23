@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package universidadgrupo81;
+package Entidades;
 
 import java.time.LocalDate;
 
@@ -85,8 +85,9 @@ public class Alumnos {
     }
 
     public void setActivo(boolean activo) {
-      this.activo = activo;
+        this.activo = activo;
     }
-    //hola
+    
+    
     
 }

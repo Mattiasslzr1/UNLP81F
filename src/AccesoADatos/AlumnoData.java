@@ -1,4 +1,4 @@
-package universisdadgrupo81.AccesoADatos;
+package AccesoADatos;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import universisdadgrupo81.Entidades.Alumnos;
+import Entidades.Alumnos;
 
 public class AlumnoData {
     

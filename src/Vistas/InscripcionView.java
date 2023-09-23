@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package universidadgrupo81;
+package Vistas;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -59,7 +59,6 @@ private DefaultTableModel modelo=new DefaultTableModel ();
         jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(530, 532));
 
         jLFInscripcion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLFInscripcion.setText("FORMULARIO DE INSCRIPCIÓN");
