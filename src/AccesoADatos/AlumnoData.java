@@ -10,6 +10,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import Entidades.Alumnos;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AlumnoData {
     
@@ -92,4 +94,92 @@ public class AlumnoData {
     }
     
     
+    public Alumnos buscarAlumno(int id){
+        String sql="SELECT dni, apellido, nombre, fechaNacimiento FROM alumno WHERE idAlumno= ? AND estado=1";
+        Alumnos alumno=null;
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs=ps.getGeneratedKeys();
+            //int exito=ps.executeUpdate();
+            if (rs.next()){
+                
+                alumno=new Alumnos();
+                alumno.setIdAlumno(rs.getInt(1));
+                alumno.setDni(rs.getInt("dni"));
+                alumno.setApellido(rs.getString("apellido"));
+                alumno.setNombre(rs.getString("nombre"));
+                alumno.setFechNac(rs.getDate("fechaNacimiento").toLocalDate());
+                alumno.setActivo(true); 
+            }else{
+                JOptionPane.showMessageDialog(null, "No existe un alumno asociado al id ingresado");
+            }
+            ps.close();
+            
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla");
+        }
+        return alumno;
+    }
+        public Alumnos buscarAlumnoPorDni(int dni){
+        String sql="SELECT idAlumno, dni, apellido, nombre, fechaNacimiento FROM alumno WHERE dni= ? AND estado=1";
+        Alumnos alumno=null;
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, dni);
+            ResultSet rs=ps.getGeneratedKeys();
+            //int exito=ps.executeUpdate();
+            if (rs.next()){
+                
+                alumno=new Alumnos();
+                alumno.setIdAlumno(rs.getInt(1));
+                alumno.setDni(rs.getInt("dni"));
+                alumno.setApellido(rs.getString("apellido"));
+                alumno.setNombre(rs.getString("nombre"));
+                alumno.setFechNac(rs.getDate("fechaNacimiento").toLocalDate());
+                alumno.setActivo(true); 
+            }else{
+                JOptionPane.showMessageDialog(null, "No existe un alumno activo asociado al dni ingresado");
+            }
+            ps.close();
+            
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla");
+        }
+        return alumno;
+    }
+    
+    public List<Alumnos> listarAlumnos(){
+        String sql="SELECT idAlumno, dni, apellido, nombre, fechaNacimiento FROM alumno WHERE estado=1";
+        ArrayList<Alumnos> alumnos=new ArrayList<>();
+        
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs=ps.getGeneratedKeys();
+            while (rs.next()){
+                
+                Alumnos alumno=new Alumnos();
+                alumno=new Alumnos();
+                alumno.setIdAlumno(rs.getInt("idAlumno"));
+                alumno.setDni(rs.getInt("dni"));
+                alumno.setApellido(rs.getString("apellido"));
+                alumno.setNombre(rs.getString("nombre"));
+                alumno.setFechNac(rs.getDate("fechaNacimiento").toLocalDate());
+                alumno.setActivo(true); 
+                
+                alumnos.add(alumno);
+            }
+            ps.close();
+            
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla");
+        }
+        return alumnos;
+    }
 }
