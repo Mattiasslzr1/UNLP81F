@@ -9,24 +9,24 @@ package Entidades;
  *
  * @author claux
  */
-public class Materias {
+public class Materia {
     
     private int idMateria;
     private String nombMateria;
     private int anioMateria;
     private boolean activoMateria;
 
-    public Materias() {
+    public Materia() {
     }
 
-    public Materias(int idMateria, String nombMateria, int anioMateria, boolean activoMateria) {
+    public Materia(int idMateria, String nombMateria, int anioMateria, boolean activoMateria) {
         this.idMateria = idMateria;
         this.nombMateria = nombMateria;
         this.anioMateria = anioMateria;
         this.activoMateria = activoMateria;
     }
 
-    public Materias(String nombMateria, int anioMateria, boolean activoMateria) {
+    public Materia(String nombMateria, int anioMateria, boolean activoMateria) {
         this.nombMateria = nombMateria;
         this.anioMateria = anioMateria;
         this.activoMateria = activoMateria;

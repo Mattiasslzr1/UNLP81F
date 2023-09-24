@@ -6,7 +6,7 @@
 package Main;
 
 import AccesoADatos.AlumnoData;
-import Entidades.Alumnos;
+import Entidades.Alumno;
 import java.time.LocalDate;
 
 /**
@@ -22,13 +22,13 @@ public class UniversisdadGrupo81 {
         
         // Todo esto es para testear que funcionan los métodos de ALumnoData una vez tengamos la base de datos conectada
         
-//        Alumnos juan = new Alumnos(12345678, "Pérez", "Juan", LocalDate.of(1980, 4, 13), true);
+//        Alumno juan = new Alumno(12345678, "Pérez", "Juan", LocalDate.of(1980, 4, 13), true);
 //        AlumnoData alu=new AlumnoData();
 //        
 //        alu.guardarAlumno(juan);              
 //        alu.modificarAlumno(juan);
 //        alu.eliminarAlumno(1);
-//        Alumnos alumnoEncontrado=alu.buscarAlumno(1);
+//        Alumno alumnoEncontrado=alu.buscarAlumno(1);
 //        if(alumnoEncontrado!=null){
 //            System.out.println("dni "+alumnoEncontrado.getDni());
 //            System.out.println("apellido "+alumnoEncontrado.getApellido());
@@ -36,7 +36,7 @@ public class UniversisdadGrupo81 {
 //        }
 //        
 //        AlumnoData alu= new AlumnoData();
-//        for(Alumnos alumno:alu.listarAlumnos()){
+//        for(Alumno alumno:alu.listarAlumnos()){
 //            System.out.println(alumno.getDni());
 //            System.out.println(alumno.getApellido());
 //            System.out.println(alumno.getNombre());
