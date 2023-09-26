@@ -20,7 +20,6 @@ public class AlumnoData {
         con=Conexion.getConexion();
     }
     
-    public void AlumnoData(){}
     
     public void guardarAlumno(Alumno alumno){
             String sql = "INSERT INTO alumno (dni, apellido, nombre, fechaNacimiento, estado)"
@@ -36,9 +35,11 @@ public class AlumnoData {
             
             ps.executeUpdate();
             ResultSet rs=ps.getGeneratedKeys();
+            //System.out.println("Bloque try");
             if (rs.next()){
                 alumno.setIdAlumno(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "Alumno guardado");
+                //JOptionPane.showMessageDialog(null, "Alumno guardado");
+                System.out.println("Bloque if");
             }
             ps.close();
             
@@ -47,7 +48,7 @@ public class AlumnoData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
             
         }
-            
+        System.out.println("Ejecutado");    
     }
     
     public void modificarAlumno(Alumno alumno){

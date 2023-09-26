@@ -24,7 +24,7 @@ public class UniversisdadGrupo81 {
         
 //        Alumno juan = new Alumno(12345678, "Pérez", "Juan", LocalDate.of(1980, 4, 13), true);
 //        AlumnoData alu=new AlumnoData();
-//        
+//        System.out.println("En el main");
 //        alu.guardarAlumno(juan);              
 //        alu.modificarAlumno(juan);
 //        alu.eliminarAlumno(1);
