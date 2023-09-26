@@ -11,13 +11,13 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author claux
  */
-public class InscripcionView extends javax.swing.JFrame {
+public class FormularioInscripcion extends javax.swing.JFrame {
 private DefaultTableModel modelo=new DefaultTableModel ();
 
     /**
      * Creates new form InscripcionView
      */
-    public InscripcionView() {
+    public FormularioInscripcion() {
         initComponents();
         armarCabecera();
     }
@@ -124,7 +124,7 @@ private DefaultTableModel modelo=new DefaultTableModel ();
                                     .addComponent(jLFInscripcion)
                                     .addComponent(jCBAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(247, 247, 247)
+                        .addGap(208, 208, 208)
                         .addComponent(jLListadoMat)))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
@@ -143,18 +143,14 @@ private DefaultTableModel modelo=new DefaultTableModel ();
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRBMatInsc)
                     .addComponent(jRBMatNoInsc))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(94, 176, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jBAnularInscribir)
-                            .addComponent(jBSalirFormInsc)
-                            .addComponent(jBInscribir))
-                        .addGap(106, 106, 106))))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBAnularInscribir)
+                    .addComponent(jBSalirFormInsc)
+                    .addComponent(jBInscribir))
+                .addGap(106, 106, 106))
         );
 
         pack();
@@ -177,20 +173,21 @@ private DefaultTableModel modelo=new DefaultTableModel ();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InscripcionView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormularioInscripcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InscripcionView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormularioInscripcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InscripcionView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormularioInscripcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InscripcionView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormularioInscripcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InscripcionView().setVisible(true);
+                new FormularioInscripcion().setVisible(true);
             }
         });
     }
