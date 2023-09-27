@@ -19,8 +19,7 @@ public class AlumnoData {
         
         con=Conexion.getConexion();
     }
-    
-    
+        
     public void guardarAlumno(Alumno alumno){
             String sql = "INSERT INTO alumno (dni, apellido, nombre, fechaNacimiento, estado)"
                     + "VALUES (?, ?, ?, ?, ?)";
@@ -66,6 +65,8 @@ public class AlumnoData {
             int exito=ps.executeUpdate();
             if(exito==1){
                 JOptionPane.showMessageDialog(null, "Alumno modificado");
+            }else if(exito>1){
+                JOptionPane.showMessageDialog(null, "Se modificó ás de un alumno. Alumnos modificados: "+exito);
             }
             
             
@@ -93,8 +94,7 @@ public class AlumnoData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno"); ;
         }
     }
-    
-    
+       
     public Alumno buscarAlumno(int id){
         String sql="SELECT dni, apellido, nombre, fechaNacimiento FROM alumno WHERE idAlumno= ? AND estado=1";
         Alumno alumno=null;
@@ -117,6 +117,8 @@ public class AlumnoData {
                 JOptionPane.showMessageDialog(null, "No existe un alumno asociado al id ingresado");
             }
             ps.close();
+            return alumno;
+        
             
             
         } catch (SQLException ex) {
@@ -124,11 +126,10 @@ public class AlumnoData {
         }
         return alumno;
     }
-    
-    
-        public Alumno buscarAlumnoPorDni(int dni){
-        String sql="SELECT idAlumno, dni, apellido, nombre, fechaNacimiento FROM alumno WHERE dni= ? AND estado=1";
-        Alumno alumno=null;
+       
+    public Alumno buscarAlumnoPorDni(int dni) {
+    String sql="SELECT idAlumno, dni, apellido, nombre, fechaNacimiento FROM alumno WHERE dni= ? AND estado=1";
+    Alumno alumno=null;
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
