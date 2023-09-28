@@ -5,7 +5,7 @@
  */
 package Vistas;
 
-import javax.swing.JComboBox;
+//import javax.swing.JComboBox;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -117,7 +117,7 @@ public class AlumnoPorMateriaView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
- private void     
+ /*private void     
     jCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Matemáticas", "Ciencias", "Historia" }));
     jCombo.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
