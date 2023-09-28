@@ -5,6 +5,7 @@
  */
 package Vistas;
 
+import javax.swing.JComboBox;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -33,7 +34,7 @@ public class AlumnoPorMateriaView extends javax.swing.JFrame {
 
         jlListadoXMateria = new javax.swing.JLabel();
         jlSelecMat = new javax.swing.JLabel();
-        jcbSelecMat = new javax.swing.JComboBox<>();
+        jCombo = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtListAlumXMat = new javax.swing.JTable();
         jbSalirListAlum = new javax.swing.JButton();
@@ -45,7 +46,12 @@ public class AlumnoPorMateriaView extends javax.swing.JFrame {
 
         jlSelecMat.setText("Seleccione una materia:");
 
-        jcbSelecMat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboActionPerformed(evt);
+            }
+        });
 
         jtListAlumXMat.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -61,6 +67,11 @@ public class AlumnoPorMateriaView extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jtListAlumXMat);
 
         jbSalirListAlum.setText("Salir");
+        jbSalirListAlum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirListAlumActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -72,7 +83,7 @@ public class AlumnoPorMateriaView extends javax.swing.JFrame {
                         .addGap(22, 22, 22)
                         .addComponent(jlSelecMat)
                         .addGap(18, 18, 18)
-                        .addComponent(jcbSelecMat, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -95,16 +106,41 @@ public class AlumnoPorMateriaView extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlSelecMat)
-                    .addComponent(jcbSelecMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
                 .addComponent(jbSalirListAlum)
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+ private void     
+    jCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Matemáticas", "Ciencias", "Historia" }));
+    jCombo.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jComboActionPerformed(evt);
+        }
+    });
+
+
+    
+    
+    private void jComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboActionPerformed
+    String materiaSeleccionada = (String) jCombo.getSelectedItem();
+    cargarAlumnosPorMateria(materiaSeleccionada);
+
+    }//GEN-LAST:event_jComboActionPerformed
+
+    private void jbSalirListAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirListAlumActionPerformed
+   this.dispose();
+    }//GEN-LAST:event_jbSalirListAlumActionPerformed
+
+
+    private void cargarAlumnosPorMateria(String materia) {
+    modelo.setRowCount(0);
 
     /**
      * @param args the command line arguments
@@ -143,9 +179,9 @@ public class AlumnoPorMateriaView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> jCombo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbSalirListAlum;
-    private javax.swing.JComboBox<String> jcbSelecMat;
     private javax.swing.JLabel jlListadoXMateria;
     private javax.swing.JLabel jlSelecMat;
     private javax.swing.JTable jtListAlumXMat;
@@ -159,4 +195,8 @@ public class AlumnoPorMateriaView extends javax.swing.JFrame {
         modelo.addColumn("Nombre");
         jtListAlumXMat.setModel (modelo);
 }
+
+    private void cargarAlumnosPorMateria(String materiaSeleccionada) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
