@@ -24,11 +24,10 @@ public class MateriaData {
     }
     
     
-    public void MateriaData(){}
     
     public void guardarMateria(Materia materia){
-            String sql = "INSERT INTO materia (nombre= ?, año= ?, estado= ?)"
-                    + "VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO materia (nombre, año, estado)"
+                    + " VALUES (?, ?, ?)";
             
         try {
             PreparedStatement ps =con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -46,13 +45,14 @@ public class MateriaData {
             
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia"+ex.getMessage());
+            ex.printStackTrace();
+            //System.out.println(ex);
         }
     }
     
     public void modificarMateria(Materia materia){
-        String sql="UPDATE materia SET nombre= ?, año= ?, estado= ?"
-                + "WHERE idMateria= ?";
+        String sql="UPDATE materia SET nombre= ?, año= ?, estado= ? WHERE idMateria= ?";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -93,21 +93,20 @@ public class MateriaData {
     
     
     public Materia buscarMateria(int id){
-        String sql="SELECT nombre, año, estado FROM materia WHERE idMateria= ? AND estado=1";
+        String sql="SELECT idMateria, nombre, año, estado FROM materia WHERE idMateria= ? AND estado=1";
         Materia materia=null;
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
-            ResultSet rs=ps.getGeneratedKeys();
+            ResultSet rs=ps.executeQuery();
             //int exito=ps.executeUpdate();
             if (rs.next()){
-                
                 
                 materia=new Materia();
                 materia.setIdMateria(rs.getInt(1));
                 materia.setNombMateria(rs.getString("nombre"));
-                materia.setAnioMateria(rs.getInt("idMateria"));
+                materia.setAnioMateria(rs.getInt("año"));
                 materia.setActivoMateria(true);
                 
             }else{
@@ -117,7 +116,8 @@ public class MateriaData {
             
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla materia");
+            JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla materia"+ex);
+            System.out.println(ex.getMessage());
         }
         return materia;
     }

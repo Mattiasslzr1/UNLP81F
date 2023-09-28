@@ -18,8 +18,8 @@ import javax.swing.JOptionPane;
 public class InscripcionData {
     
     private Connection con=null;
-    private AlumnoData ad=new AlumnoData();
-    private MateriaData md=new MateriaData();
+    private final AlumnoData ad=new AlumnoData();
+    private final MateriaData md=new MateriaData();
     
     public InscripcionData() {
         con=Conexion.getConexion();
@@ -33,6 +33,7 @@ public class InscripcionData {
         try {
             PreparedStatement ps=con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setDouble(1, inscripcion.getNota());
+            System.out.println("idalumno: "+inscripcion.getAlumno().getIdAlumno());
             ps.setInt(2, inscripcion.getAlumno().getIdAlumno());
             ps.setInt(3, inscripcion.getMateria().getIdMateria());
             
@@ -47,6 +48,7 @@ public class InscripcionData {
             
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al accedera la tabla inscripciones");
+            System.out.println(ex);
         }
     }
     
@@ -97,7 +99,7 @@ public class InscripcionData {
     
     public List<Inscripcion> listarInscripciones(){
         ArrayList<Inscripcion> inscripciones=new ArrayList<>();
-        String sql="SELECT idInscripcion, nota, idAlumno, idMateria FROM inscripcion WHERE estado=1";
+        String sql="SELECT idInscripcion, nota, idAlumno, idMateria FROM inscripcion";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);

@@ -66,13 +66,13 @@ public class AlumnoData {
             if(exito==1){
                 JOptionPane.showMessageDialog(null, "Alumno modificado");
             }else if(exito>1){
-                JOptionPane.showMessageDialog(null, "Se modificó ás de un alumno. Alumnos modificados: "+exito);
+                JOptionPane.showMessageDialog(null, "Se modificó más de un alumno. Alumnos modificados: "+exito);
             }
             
             
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno"); ;
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno"); 
         }
     }
     
@@ -96,13 +96,13 @@ public class AlumnoData {
     }
        
     public Alumno buscarAlumno(int id){
-        String sql="SELECT dni, apellido, nombre, fechaNacimiento FROM alumno WHERE idAlumno= ? AND estado=1";
+        String sql="SELECT idAlumno, dni, apellido, nombre, fechaNacimiento FROM alumno WHERE idAlumno= ? AND estado=1";
         Alumno alumno=null;
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
-            ResultSet rs=ps.getGeneratedKeys();
+            ResultSet rs=ps.executeQuery();
             //int exito=ps.executeUpdate();
             if (rs.next()){
                 
@@ -122,7 +122,7 @@ public class AlumnoData {
             
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla");
+            JOptionPane.showMessageDialog(null, ex);
         }
         return alumno;
     }
@@ -164,11 +164,10 @@ public class AlumnoData {
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet rs=ps.getGeneratedKeys();
+            ResultSet rs=ps.executeQuery();
             while (rs.next()){
                 
                 Alumno alumno=new Alumno();
-                alumno=new Alumno();
                 alumno.setIdAlumno(rs.getInt("idAlumno"));
                 alumno.setDni(rs.getInt("dni"));
                 alumno.setApellido(rs.getString("apellido"));
