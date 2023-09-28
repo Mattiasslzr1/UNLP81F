@@ -31,8 +31,8 @@ public class UniversisdadGrupo81 {
 //        Inscripcion insc=new Inscripcion();
 //          
         
-//        Alumno juan = new Alumno(32245678, "Registrode", "Pruebasincontraseña", LocalDate.of(1980, 4, 13), true);
-//        AlumnoData alu=new AlumnoData();
+        Alumno juan = new Alumno(32245678, "Registrode", "Pruebasincontraseña", LocalDate.of(1980, 4, 13), true);
+        AlumnoData alu=new AlumnoData();
 
         //  ABM ALUMNOS
 //        alu.guardarAlumno();              //chequeado
@@ -55,12 +55,12 @@ public class UniversisdadGrupo81 {
 //            System.out.println(alumno.getFechNac());
 //        }
 //
-
 //        
-//        Materia material= new Materia(7, "Programachion", 1, true);
+        Materia materia= new Materia(7, "Programachion", 1, true);
+        MateriaData md=new MateriaData();
 
         //  ABM MATERIAS
-//        md.guardarMateria(material);          //chequeado
+ //       md.guardarMateria(materia);          //chequeado
 //        md.modificarMateria();                //chequeado
 //        md.eliminarMateria();                 //chequeado
 
@@ -72,14 +72,15 @@ public class UniversisdadGrupo81 {
 //            System.out.println("nombre "+materiaEncontrada.getNombMateria());
 //        }
 
-//        Inscripcion insc=new Inscripcion(juan, materiaEncontrada, 9); //constructor que toma Alumno, Materia y nota
+        InscripcionData id=new InscripcionData();
+        Inscripcion insc=new Inscripcion(juan, materia, 9); //constructor que toma Alumno, Materia y nota
 
         //  ABM INSCRIPCIONES
 //        id.guardarInscripcion(insc);      //chequeado
 //        id.actualizarNota(9, 7, 4);       //chequeado
 //        id.eliminarInscripcion(9, 7);     //chequeado
 
-        //  LISTAR INSCRIPCIONES 
+//        //  LISTAR INSCRIPCIONES 
 //        for (Inscripcion inscripcion:id.listarInscripciones()){       //chequeado
 //            System.out.println("id: "+inscripcion.getIdInscripcion());
 //            System.out.println("Nombre: "+inscripcion.getAlumno().getNombre());
