@@ -95,6 +95,11 @@ private DefaultTableModel modelo=new DefaultTableModel ();
         jBAnularInscribir.setText("Anular Inscripción");
 
         jBSalirFormInsc.setText("Salir");
+        jBSalirFormInsc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirFormInscActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -155,6 +160,10 @@ private DefaultTableModel modelo=new DefaultTableModel ();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBSalirFormInscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirFormInscActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jBSalirFormInscActionPerformed
 
     /**
      * @param args the command line arguments

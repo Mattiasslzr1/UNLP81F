@@ -5,6 +5,9 @@
  */
 package Vistas;
 
+import AccesoADatos.MateriaData;
+import Entidades.Materia;
+
 /**
  *
  * @author claux
@@ -58,12 +61,32 @@ public class FormularioMateria extends javax.swing.JFrame {
         jBBuscarMateria.setText("Buscar");
 
         jBNuevoMateria.setText("Nuevo");
+        jBNuevoMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBNuevoMateriaActionPerformed(evt);
+            }
+        });
 
         jBEliminarMateria.setText("Eliminar");
+        jBEliminarMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEliminarMateriaActionPerformed(evt);
+            }
+        });
 
         jBGuardarMateria.setText("Guardar");
+        jBGuardarMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGuardarMateriaActionPerformed(evt);
+            }
+        });
 
         jBSalirMateria.setText("Salir");
+        jBSalirMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirMateriaActionPerformed(evt);
+            }
+        });
 
         jRActivoMateria.setText("Activo");
 
@@ -143,6 +166,47 @@ public class FormularioMateria extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBSalirMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirMateriaActionPerformed
+    this.dispose();
+    }//GEN-LAST:event_jBSalirMateriaActionPerformed
+
+    private void jBEliminarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarMateriaActionPerformed
+    String idMateria = jTFIdMateria.getText();
+    jTFIdMateria.setText("");
+    jTFMateria.setText("");
+    jTFanioMateria.setText("");
+    jRActivoMateria.setSelected(false);
+    }//GEN-LAST:event_jBEliminarMateriaActionPerformed
+
+    private void jBNuevoMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoMateriaActionPerformed
+   String idMateria = jTFIdMateria.getText();
+    String materia = jTFMateria.getText();
+    String anioMateria = jTFanioMateria.getText();
+    boolean estadoActivo = jRActivoMateria.isSelected();
+    
+    
+   
+     jTFIdMateria.setText("");
+    jTFMateria.setText("");
+    jTFanioMateria.setText("");
+    jRActivoMateria.setSelected(false);
+
+    }//GEN-LAST:event_jBNuevoMateriaActionPerformed
+
+    private void jBGuardarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarMateriaActionPerformed
+    String idMateria = jTFIdMateria.getText();
+    String materia = jTFMateria.getText();
+    String anioMateria = jTFanioMateria.getText();
+    boolean estadoActivo = jRActivoMateria.isSelected();
+    MateriaData materiaData = new MateriaData();
+    Materia nuevaMateria = new Materia(materia, Integer.parseInt(anioMateria), estadoActivo);
+    materiaData.guardarMateria(nuevaMateria);
+    jTFIdMateria.setText("");
+    jTFMateria.setText("");
+    jTFanioMateria.setText("");
+    jRActivoMateria.setSelected(false);
+    }//GEN-LAST:event_jBGuardarMateriaActionPerformed
 
     /**
      * @param args the command line arguments

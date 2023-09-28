@@ -64,6 +64,11 @@ public class FormularioAlumnoView extends javax.swing.JFrame {
         jLEstado.setText("Estado:");
 
         jBBuscar.setText("BUSCAR");
+        jBBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBBuscarActionPerformed(evt);
+            }
+        });
 
         jLFechNAc.setText("Fecha de Nacimiento:");
 
@@ -74,6 +79,11 @@ public class FormularioAlumnoView extends javax.swing.JFrame {
         jBGuardar.setText("Guardar");
 
         jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -155,6 +165,34 @@ public class FormularioAlumnoView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+    this.dispose(); 
+    }//GEN-LAST:event_jBSalirActionPerformed
+
+    private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
+            String idMateriaABuscar = jTFIdMateria.getText();
+           if (!idMateriaABuscar.isEmpty()) {
+        try {
+            int idMateria = Integer.parseInt(idMateriaABuscar);
+            MateriaData materiaData = new MateriaData();        
+            Materia materiaEncontrada = materiaData.buscarMateria(idMateria);         
+            if (materiaEncontrada != null) {             
+                jTFMateria.setText(materiaEncontrada.getNombMateria());
+                jTFanioMateria.setText(String.valueOf(materiaEncontrada.getAnioMateria()));
+                jRActivoMateria.setSelected(materiaEncontrada.isActivoMateria());
+            } else {         
+                JOptionPane.showMessageDialog(this, "No se encontró una materia con el ID especificado.");
+            }
+        } catch (NumberFormatException e) {          
+            JOptionPane.showMessageDialog(this, "Ingrese un ID de materia válido.");
+        }
+    } else {       
+        JOptionPane.showMessageDialog(this, "Ingrese un ID de materia para buscar.");
+    }
+}
+        }
+    }//GEN-LAST:event_jBBuscarActionPerformed
 
     /**
      * @param args the command line arguments

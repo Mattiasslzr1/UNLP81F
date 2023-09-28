@@ -64,6 +64,11 @@ private DefaultTableModel modelo=new DefaultTableModel ();
         jbGuardarFormNotas.setText("Guardar");
 
         jbSalirFormNotas.setText("Salir");
+        jbSalirFormNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirFormNotasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,6 +116,10 @@ private DefaultTableModel modelo=new DefaultTableModel ();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbSalirFormNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirFormNotasActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jbSalirFormNotasActionPerformed
 
     /**
      * @param args the command line arguments

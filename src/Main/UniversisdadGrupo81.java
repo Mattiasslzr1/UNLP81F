@@ -24,18 +24,22 @@ public class UniversisdadGrupo81 {
      */
     public static void main(String[] args) {
 //        AlumnoData ad=new AlumnoData();
-//        MateriaData md=new MateriaData();
+        MateriaData md=new MateriaData();
 //        InscripcionData id=new InscripcionData();
 //        Alumno alu=new Alumno();
-//        Materia mate=new Materia();
+        Materia mate=new Materia();
 //        Inscripcion insc=new Inscripcion();
 //          
         
+
         Alumno juan = new Alumno(32245678, "Registrode", "Pruebasincontraseña", LocalDate.of(1980, 4, 13), true);
         AlumnoData alu=new AlumnoData();
+//        Alumno diego = new Alumno(32245648, "Salguero", "Diego", LocalDate.of(1980, 4, 13), true);
+//        AlumnoData alu=new AlumnoData();
+
 
         //  ABM ALUMNOS
-//        alu.guardarAlumno();              //chequeado
+//       alu.guardarAlumno(diego);              //chequeado
 //        alu.modificarAlumno();            //chequeado
 //        alu.eliminarAlumno();             //chequeado
 //
