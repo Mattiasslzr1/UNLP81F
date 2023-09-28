@@ -24,10 +24,10 @@ public class UniversisdadGrupo81 {
      */
     public static void main(String[] args) {
 //        AlumnoData ad=new AlumnoData();
-        MateriaData md=new MateriaData();
+//        MateriaData md=new MateriaData();
 //        InscripcionData id=new InscripcionData();
 //        Alumno alu=new Alumno();
-        Materia mate=new Materia();
+//        Materia mate=new Materia();
 //        Inscripcion insc=new Inscripcion();
 //          
         
